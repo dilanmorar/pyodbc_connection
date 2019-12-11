@@ -19,5 +19,8 @@ class NWEmployees(MSDBConnection):
         return employee_id_info
 
     def employee_search(self):
-
+        employee_name = input('Insert employee name: ')
+        query = f"select * from employees where FirstName = '%{employee_name}%' or LastName = '%{employee_name}%'"
+        employee_name_info = self._MSDBConnection__sql_query(query)
+        return employee_name_info
 # search for one employee by first name or last name
