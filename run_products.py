@@ -7,6 +7,7 @@ while True:
     print('Choose option 3 for information on top 10 products by price')
     print('Choose option 4 for information on bottom 10 products by price')
     print('Choose option 5 for information on a specific product using product name')
+    print('To end enter "exit": ')
     user_choice = input('Choose an option: ').strip()
 
     if user_choice == '1':

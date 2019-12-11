@@ -56,7 +56,7 @@ class NWProducts(MSDBConnection):
 
     def search_product(self):
         product_name = self.set_product_name()
-        query = f"select * from products where ProductName = {product_name}"
+        query = f"select * from products where ProductName = '{product_name}'"
         product_name_info = self.__sql_query(query)
         return product_name_info
 
