@@ -2,6 +2,7 @@ import pyodbc
 from db_connect_oop import *
 
 class NWProducts(MSDBConnection):
+
     def __sql_query(self, sql_query):
         return self.cursor.execute(sql_query)
 
