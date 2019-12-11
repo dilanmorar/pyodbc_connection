@@ -32,7 +32,7 @@ class NWProducts(MSDBConnection):
                 break
             print(f"ID: {record.ProductID} - {record.ProductName} - £{record.UnitPrice}")
 
-    def top_10(self):
+    def top_10_price(self):
         query = "select top 10 * from Products order by UnitPrice desc"
         top_10_data = self.__sql_query(query)
         while True:
@@ -41,7 +41,7 @@ class NWProducts(MSDBConnection):
                 break
             print(f"ID: {record.ProductID} - {record.ProductName} - £{record.UnitPrice}")
 
-    def bottom_10(self):
+    def bottom_10_price(self):
         query = "select top 10 * from Products order by UnitPrice asc"
         bottom_10_data = self.__sql_query(query)
         while True:

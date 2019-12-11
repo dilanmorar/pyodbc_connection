@@ -16,10 +16,10 @@ while True:
         print(products_table.read_one().fetchone())
 
     elif user_choice == '3':
-        print(products_table.top_10().fetchone())
+        print(products_table.top_10_price())
 
     elif user_choice == '4':
-        print(products_table.bottom_10().fetchone())
+        print(products_table.bottom_10_price())
 
     elif user_choice == '5':
         print(products_table.search_product().fetchone())
