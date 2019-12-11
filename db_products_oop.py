@@ -30,7 +30,44 @@ class NWProducts(MSDBConnection):
             record = data.fetchone()
             if record is None:
                 break
-            print(record)
+            print(f"ID: {record.ProductID} - {record.ProductName} - £{record.UnitPrice}")
+
+    def top_10(self):
+        query = "select top 10 * from Products order by UnitPrice desc"
+        top_10_data = self.__sql_query(query)
+        while True:
+            record = top_10_data.fetchone()
+            if record is None:
+                break
+            print(f"ID: {record.ProductID} - {record.ProductName} - £{record.UnitPrice}")
+
+    def bottom_10(self):
+        query = "select top 10 * from Products order by UnitPrice asc"
+        bottom_10_data = self.__sql_query(query)
+        while True:
+            record = bottom_10_data.fetchone()
+            if record is None:
+                break
+            print(f"ID: {record.ProductID} - {record.ProductName} - £{record.UnitPrice}")
+
+    def set_product_name(self):
+        product_name = input('Insert product name: ')
+        return product_name
+
+    def search_product(self):
+        product_name = self.set_product_name()
+        query = f"select * from products where ProductName = {product_name}"
+        product_name_info = self.__sql_query(query)
+        return product_name_info
+
+
+# gets top 10 products by price - formatted
+
+# gets bottom products by price - formatted
+
+# search product by name
+
+
 
 # read / list all
 # print(NWProducts().read_all().fetchone())
