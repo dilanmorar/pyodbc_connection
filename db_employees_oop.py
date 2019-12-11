@@ -15,12 +15,12 @@ class NWEmployees(MSDBConnection):
     def one_employee(self):
         employee_id = input('Input employee id: ')
         query = f"select * from employees where EmployeeID = '{employee_id}'"
-        employee_id_info = self._MSDBConnection__sql_query(query)
+        employee_id_info = self._MSDBConnection__sql_query(query).fetchone()
         return employee_id_info
 
     def employee_search(self):
         employee_name = input('Insert employee name: ')
-        query = f"select * from employees where FirstName = '%{employee_name}%' or LastName = '%{employee_name}%'"
-        employee_name_info = self._MSDBConnection__sql_query(query)
+        query = f"select * from employees where FirstName like '%{employee_name}%' or LastName like '%{employee_name}%'"
+        employee_name_info = self._MSDBConnection__sql_query(query).fetchone()
         return employee_name_info
-# search for one employee by first name or last name
+

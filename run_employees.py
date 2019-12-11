@@ -11,7 +11,7 @@ while True:
         products_table.all_employees()
 
     elif user_choice == '2':
-        print(products_table.one_employee().fetchone())
+        print(products_table.one_employee())
 
     elif user_choice == '3':
         print(products_table.employee_search())

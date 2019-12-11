@@ -63,12 +63,13 @@ class NWProducts(MSDBConnection):
 
 
 # gets top 10 products by price - formatted
-
 # gets bottom products by price - formatted
-
 # search product by name
-
-
+# average price
+# max price
+# min Price
+# products in price range
+# create one product
 
 # read / list all
 # print(NWProducts().read_all().fetchone())
