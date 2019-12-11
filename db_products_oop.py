@@ -3,14 +3,11 @@ from db_connect_oop import *
 
 class NWProducts(MSDBConnection):
 
-    def __sql_query(self, sql_query):
-        return self.cursor.execute(sql_query)
-
     def read_all(self):
         # build SQL query
         query = 'select * from products'
         # execute query
-        data = self.__sql_query(query)
+        data = self._MSDBConnection__sql_query(query)
         # return an iteratable object
         return data
 
@@ -21,12 +18,12 @@ class NWProducts(MSDBConnection):
     def read_one(self):
         id = self.set_id()
         query = f"select * from products where ProductID = {id}"
-        id_info = self.__sql_query(query)
+        id_info = self._MSDBConnection__sql_query(query)
         return id_info
 
     def print_all(self):
         query = 'select * from products'
-        data = self.__sql_query(query)
+        data = self._MSDBConnection__sql_query(query)
         while True:
             record = data.fetchone()
             if record is None:
@@ -35,7 +32,7 @@ class NWProducts(MSDBConnection):
 
     def top_10_price(self):
         query = "select top 10 * from Products order by UnitPrice desc"
-        top_10_data = self.__sql_query(query)
+        top_10_data = self._MSDBConnection__sql_query(query)
         while True:
             record = top_10_data.fetchone()
             if record is None:
@@ -44,7 +41,7 @@ class NWProducts(MSDBConnection):
 
     def bottom_10_price(self):
         query = "select top 10 * from Products order by UnitPrice asc"
-        bottom_10_data = self.__sql_query(query)
+        bottom_10_data = self._MSDBConnection__sql_query(query)
         while True:
             record = bottom_10_data.fetchone()
             if record is None:
@@ -58,8 +55,41 @@ class NWProducts(MSDBConnection):
     def search_product(self):
         product_name = self.set_product_name()
         query = f"select * from products where ProductName = '{product_name}'"
-        product_name_info = self.__sql_query(query)
+        product_name_info = self._MSDBConnection__sql_query(query)
         return product_name_info
+
+    def avg_price(self):
+        query = "select top 10 * from Products order by UnitPrice asc"
+        bottom_10_data = self.__sql_query(query)
+        while True:
+            record = bottom_10_data.fetchone()
+            if record is None:
+                break
+            print(f"ID: {record.ProductID} - {record.ProductName} - £{record.UnitPrice}")
+
+    def max_price(self):
+        query = "select top 1 * from Products order by UnitPrice desc"
+        top_1_data = self._MSDBConnection__sql_query(query)
+        while True:
+            record = top_1_data.fetchone()
+            if record is None:
+                break
+            print(f"ID: {record.ProductID} - {record.ProductName} - £{record.UnitPrice}")
+
+    def min_price(self):
+        query = "select top 1 * from Products order by UnitPrice asc"
+        bottom_1_data = self._MSDBConnection__sql_query(query)
+        while True:
+            record = bottom_1_data.fetchone()
+            if record is None:
+                break
+            print(f"ID: {record.ProductID} - {record.ProductName} - £{record.UnitPrice}")
+
+    def price_range(self):
+        pass
+
+    def add_product(self):
+        pass
 
 
 # gets top 10 products by price - formatted

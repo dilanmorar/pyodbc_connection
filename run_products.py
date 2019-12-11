@@ -7,6 +7,9 @@ while True:
     print('Choose option 3 for information on top 10 products by price')
     print('Choose option 4 for information on bottom 10 products by price')
     print('Choose option 5 for information on a specific product using product name')
+    print('Choose option 6 for the average price')
+    print('Choose option 7 for the maximum price')
+    print('Choose option 8 for the minimum price')
     print('To end enter "exit": ')
     user_choice = input('Choose an option: ').strip()
 
@@ -24,6 +27,15 @@ while True:
 
     elif user_choice == '5':
         print(products_table.search_product().fetchone())
+
+    elif user_choice == '6':
+        pass
+
+    elif user_choice == '7':
+        print(products_table.max_price())
+
+    elif user_choice == '8':
+        print(products_table.min_price())
 
     elif 'exit' in user_choice:
         print('exited')
