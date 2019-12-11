@@ -41,9 +41,9 @@ class NWProducts(MSDBConnection):
 # print all products using the while loop fetchone
 # print(NWProducts().print_all())
 
-    # ask for input --> front end -- input()
-    # create one --> makes things persistent in db
+# ask for input --> front end -- input()
+# create one --> makes things persistent in db
 
-    # update one
+# update one
 
-    # delete one
+# delete one
