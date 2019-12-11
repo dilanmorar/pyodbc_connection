@@ -27,19 +27,19 @@ class NWProducts(MSDBConnection):
         query = 'select * from products'
         data = self.__sql_query(query)
         while True:
-            return print(NWProducts().read_all().fetchone())
+            record = data.fetchone()
+            if record is None:
+                break
+            print(record)
 
 # read / list all
-products = NWProducts().read_all()
-print(products.fetchone())
+# print(NWProducts().read_all().fetchone())
 
 # read one id
-product = NWProducts().read_one()
-print(product.fetchone())
-
+# print(NWProducts().read_one().fetchone())
 
 # print all products using the while loop fetchone
-product
+# print(NWProducts().print_all())
 
     # ask for input --> front end -- input()
     # create one --> makes things persistent in db
