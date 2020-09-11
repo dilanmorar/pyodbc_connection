@@ -1,8 +1,11 @@
-# Modules, Libraries and Packages
-## Specifically pyodbc package
+# pyodbc_connection
+
+Using the package pyodbc to connect to a database (SQL) by importing it. Also go through using libraries, modules and packages.
+
+## Modules, Libraries and Packages
 
 ### Libraries
-Refer to python standard libraries. 
+Refer to python standard libraries.
 They come standard with python but need to be imported
 
 ### Modules
@@ -28,12 +31,14 @@ These things that abstracted include:
 - analyse if its maintained and how/why you will use it
 
 #### Installing
-- pip - pythons package manager(deals with dependencies and installs in virtual environment)
+- pip - pythons package manager(deals with dependencies and installs in virtual environment, will also probably have to install pip)
 - pycharm - you can just add to interpreter
 
 #### Using
 - import and call your functions
 - follow the documentation
 
-## PYODBC
-this package allows us to connect to a database
+## pyodbc
+
+This package allows us to connect to a database such as SQL which is what
+we have done
